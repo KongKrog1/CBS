@@ -1,4 +1,4 @@
-package asteroids.playersystem;
+package shared;
 
 import asteroids.common.bullet.BulletSPI;
 import asteroids.common.data.Entity;
@@ -6,6 +6,7 @@ import asteroids.common.data.GameData;
 import asteroids.common.data.GameKeys;
 import asteroids.common.data.World;
 import asteroids.common.services.IEntityProcessingService;
+import asteroids.player.Player;
 
 import java.util.Collection;
 import java.util.ServiceLoader;
@@ -13,7 +14,7 @@ import java.util.ServiceLoader;
 import static java.util.stream.Collectors.toList;
 
 
-public class PlayerControlSystem implements IEntityProcessingService {
+public class ControlSystem implements IEntityProcessingService {
 
     @Override
     public void process(GameData gameData, World world) {

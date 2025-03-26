@@ -1,4 +1,4 @@
-package asteroids.playersystem;
+package asteroids.player;
 
 import asteroids.common.data.Entity;
 import asteroids.common.data.GameData;

@@ -1,11 +1,12 @@
-package asteroids.enemysystem;
+package shared;
 
 import asteroids.common.data.Entity;
 import asteroids.common.data.GameData;
 import asteroids.common.data.World;
 import asteroids.common.services.IEntityProcessingService;
+import asteroids.enemy.Enemy;
 
-public class EnemyControlSystem implements IEntityProcessingService {
+public class ControlSystem implements IEntityProcessingService {
 
     private static final double FORWARD_SPEED = 2.0; // Forward speed for the enemy
     @Override

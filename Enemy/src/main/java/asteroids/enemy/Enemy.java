@@ -1,4 +1,4 @@
-package asteroids.enemysystem;
+package asteroids.enemy;
 
 import asteroids.common.data.Entity;
 
