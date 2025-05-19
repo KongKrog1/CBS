@@ -1,4 +1,4 @@
-package asteroids.playersystem;
+package splitter;
 
 import asteroids.common.data.Entity;
 

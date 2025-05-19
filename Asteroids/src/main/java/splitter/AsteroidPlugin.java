@@ -1,4 +1,4 @@
-package asteroids.asteroid;
+package splitter;
 
 import asteroids.common.asteroids.Asteroid;
 import asteroids.common.data.Entity;

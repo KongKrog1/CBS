@@ -20,6 +20,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import asteroids.common.util.ServiceLocator;
 
 public class Main extends Application {
 
@@ -102,19 +103,19 @@ public class Main extends Application {
         }
         for (IPostEntityProcessingService postEntityProcessorService : getPostEntityProcessingServices()) {
             postEntityProcessorService.process(gameData, world);
-        }       
+        }
     }
 
-    private void draw() {        
+    private void draw() {
         for (Entity polygonEntity : polygons.keySet()) {
-            if(!world.getEntities().contains(polygonEntity)){   
-                Polygon removedPolygon = polygons.get(polygonEntity);               
-                polygons.remove(polygonEntity);                      
+            if(!world.getEntities().contains(polygonEntity)){
+                Polygon removedPolygon = polygons.get(polygonEntity);
+                polygons.remove(polygonEntity);
                 gameWindow.getChildren().remove(removedPolygon);
             }
         }
-                
-        for (Entity entity : world.getEntities()) {                      
+
+        for (Entity entity : world.getEntities()) {
             Polygon polygon = polygons.get(entity);
             if (polygon == null) {
                 polygon = new Polygon(entity.getPolygonCoordinates());
@@ -129,14 +130,14 @@ public class Main extends Application {
     }
 
     private Collection<? extends IGamePluginService> getPluginServices() {
-        return ServiceLoader.load(IGamePluginService.class).stream().map(ServiceLoader.Provider::get).collect(toList());
+        return ServiceLocator.INSTANCE.locateAll(IGamePluginService.class);
     }
 
     private Collection<? extends IEntityProcessingService> getEntityProcessingServices() {
-        return ServiceLoader.load(IEntityProcessingService.class).stream().map(ServiceLoader.Provider::get).collect(toList());
+        return ServiceLocator.INSTANCE.locateAll(IEntityProcessingService.class);
     }
 
     private Collection<? extends IPostEntityProcessingService> getPostEntityProcessingServices() {
-        return ServiceLoader.load(IPostEntityProcessingService.class).stream().map(ServiceLoader.Provider::get).collect(toList());
+        return ServiceLocator.INSTANCE.locateAll(IPostEntityProcessingService.class);
     }
 }
